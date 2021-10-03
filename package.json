@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node ."
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["SpeederBot", "Speeding", "Twitter Bot", "Here API"],
+  "author": "Vespasianvs",
   "license": "MIT",
   "dependencies": {
     "twitter-lite": "^1.1.0",
