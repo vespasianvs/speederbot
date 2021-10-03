@@ -1,0 +1,6 @@
+module.exports = {  
+	consumer_key: 'API key from Twitter Dev Console' ,  
+	consumer_secret: 'API Secret from Twitter Dev Console',  
+	access_token_key: 'Access Token generated on the Twitter Dev Console',  
+	access_token_secret: 'Access Token generated on the Twitter Dev Console'  
+}

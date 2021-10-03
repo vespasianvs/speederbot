@@ -1,0 +1,15 @@
+.DS_Store?
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+s108361.gridserver.com
+gitPull.php
+blog/*
+.htaccess
+node_modules
+.cache
+public
+**/docs/*
+.env
+config.js
