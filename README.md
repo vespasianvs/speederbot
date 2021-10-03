@@ -27,20 +27,21 @@ You are going to be generating API Keys, Secret Keys and Access Tokens. **DO NOT
 3. Create a new 'Freemium' project and create a REST API. You need to copy the API KEY (**NOT** the APP ID!)
 4. The Bot uses a flow bounding box as the source of it's traffic flow data, draw a box around your road, test and note the 4 coordinates (e.g. 51.5082,-0.1285;51.5062,-0.1265). https://developer.here.com/documentation/examples/rest/traffic/traffic-flow-bounding-box Click into the "bbox" and move the map location to your desired road, try and make this as small as possible to only capture local traffic flows. Then click "Send Request" the results will appear in the black box and note down the 4 coordinates.
 5. Check the output of the Send Request. Here Technologies appear to provide outputs for Major Trunk Roads. These are A-Roads and Motorways. Although there are some B-Roads included in the output, these appear to be the exception. Make a note of *which* road you want to use, e.g. A1 or M1. Also determine the actual speed limit for the section of road that you are monitoring.
-6. Edit the file *index.js* as follows:
+6. Download the code from https://github.com/vespasianvs/speederbot - either as a zip file or use git to clone the repository.
+7. Edit the file *index.js* as follows:
 	-> Put your HERE API KEY from step 3 where it says YOUR_NEXT_COM_API_KEY_HERE - make sure you copy any dashes or other punctuation at the start of the string.
 	-> Put your BBox coordinates from step 4 where it says YOUR_COORDINATES_HERE.
 	-> Put your Road name from step 4 where it says ROAD_NAME_HERE!
 	-> Set the trigger speed limit for DETECT_SPEED (I usually use 10mph above the posted speed limit)
-7. Rename *config.js.sample* to *config.js*.
-8. Log into your (approved?) Twitter Developer Account (as your bot) and head to the Developer Portal.
-9. Click ' + Create Project App ' and enter a name for it (e.g. my_hometown_speederbot)
-10. You will immediately be given an API Key and API Secret Key - copy the api key into 'Consumer Key' and API Secret Key into 'Consumer Secret' in *config.js*. **These will not be shown again!**
-11. Click on App Settings then at the top click 'Keys and tokens'
-12. Under Authentication Tokens, next to Access Token and Secret click the 'Generate Button'. Copy these tokens into the access_token_key and access_token_secret fields in *config.js*
-13. Create a Google Cloud Developer Account (you'll need a Google account for this). https://cloud.google.com/
-14. Head to the console and then Find 'Cloud Functions' from the menu.
-15. Click 'Create Function'
+8. Rename *config.js.sample* to *config.js*.
+9. Log into your (approved?) Twitter Developer Account (as your bot) and head to the Developer Portal.
+10. Click ' + Create Project App ' and enter a name for it (e.g. my_hometown_speederbot)
+11. You will immediately be given an API Key and API Secret Key - copy the api key into 'Consumer Key' and API Secret Key into 'Consumer Secret' in *config.js*. **These will not be shown again!**
+12. Click on App Settings then at the top click 'Keys and tokens'
+13. Under Authentication Tokens, next to Access Token and Secret click the 'Generate Button'. Copy these tokens into the access_token_key and access_token_secret fields in *config.js*
+14. Create a Google Cloud Developer Account (you'll need a Google account for this). https://cloud.google.com/
+15. Head to the console and then Find 'Cloud Functions' from the menu.
+16. Click 'Create Function'
 	-> Give your function a name, e.g. speeding-a36
 	-> region: for UK you want europe-west2
 	-> Set the trigger type to Cloud Pub/Sub
@@ -53,8 +54,8 @@ You are going to be generating API Keys, Secret Keys and Access Tokens. **DO NOT
 	-> Copy the contents of config.js in this project into the Inline Editor (with all of your Keys and access tokens!)
 	-> Press Deploy
 	-> Once it has deployed, click the three dots under 'Actions' and click 'Test Function' if it runs - great it should post some tweets, if not you have something wrong in the code - you need to fix that! :)
-16. Now head to Cloud Scheduler on the main navigation menu
-17. Click 'Create Job'
+17. Now head to Cloud Scheduler on the main navigation menu
+18. Click 'Create Job'
 	-> Give it a name that makes sense
 	-> Set the frequency (I use every 15 mins, which is: */15 * * * * )
 	-> Set the timezone (Europe/London)
@@ -65,7 +66,7 @@ You are going to be generating API Keys, Secret Keys and Access Tokens. **DO NOT
 	-> Click 'Next' then leave all of the retry settings as default and click 'Create'
 	-> On the cloud scheduler you can click 'Run Now' to see if the Result comes out as 'Success' - if it doesn't, you'll need to figure that out yourself!
 
-Your bot should now query the Here.com API every 15 minutes and then post to Twitter. I have actually under Cloud Functions -> Actions, used the Copy Function to created three copies of the bot and set different bounding boxes and roads to have my Twitter Bot tweet about three different locations, which is pretty awesome. Each function needs to be run by a scheduler, but it can use the same schedule (just select the same topic in step 15.4 instead of creating a new topic).
+Your bot should now query the Here.com API every 15 minutes and then post to Twitter. I have actually under Cloud Functions -> Actions, used the Copy Function to created three copies of the bot and set different bounding boxes and roads to have my Twitter Bot tweet about three different locations, which is pretty awesome. Each function needs to be run by a scheduler, but it can use the same schedule (just select the same topic in step 16.4 instead of creating a new topic).
 
 ### Important Cost things
 
@@ -76,6 +77,10 @@ Your bot should now query the Here.com API every 15 minutes and then post to Twi
 * Google *may* require you to have payment information on file - keep an eye on your account o make sure you're not running up a bill!
 
 # Finally - Good Luck!
+
+## If you find problems
+
+If you feel like there is anything wrong with the code, any improvements to the instructions or anything else please feel free to fork the repository, fix it and then submit a Pull Reuqest. This is open source and it helps if everybody contributes. If none of that last sentence made any sense, go [here]https://github.com/vespasianvs/speederbot/issues and raise a new issue - but be precise with the problem you're having. 'It doesn't work' doesn't help anybody to fix anything!
 
 
 
