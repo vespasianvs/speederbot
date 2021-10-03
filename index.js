@@ -4,8 +4,8 @@ const twitter = require("twitter-lite");
 const client = new twitter(config);
 
 const API_KEY = "YOUR_NEXT_COM_API_KEY_HERE";
-const COORDINATES = "51.0717,-1.7911;51.0665,-1.7874";
-const ROAD_NAME = "A36";
+const COORDINATES = "YOUR_COORDINATES_HERE";
+const ROAD_NAME = "ROAD_NAME_HERE!";
 const DETECT_SPEED = 50;
 
 exports.checkData = () => {
