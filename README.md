@@ -33,6 +33,7 @@ You are going to be generating API Keys, Secret Keys and Access Tokens. **DO NOT
 	-> Put your BBox coordinates from step 4 where it says YOUR_COORDINATES_HERE.
 	-> Put your Road name from step 4 where it says ROAD_NAME_HERE!
 	-> In ROAD_DESCRIPTION, give your road name a nice human readable description, e.g. 'High Street' or 'the A36'
+	-> In POSTED_SPEED_LIMIT, put the posted speed limit, e.g. 30mph
 	-> Set the trigger speed limit for DETECT_SPEED (I usually use 10mph above the posted speed limit)
 8. Rename *config.js.sample* to *config.js*.
 9. Log into your (approved?) Twitter Developer Account (as your bot) and head to the Developer Portal.
