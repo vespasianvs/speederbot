@@ -6,6 +6,7 @@ const client = new twitter(config);
 const API_KEY = "YOUR_NEXT_COM_API_KEY_HERE";
 const COORDINATES = "YOUR_COORDINATES_HERE";
 const ROAD_NAME = "ROAD_NAME_HERE!";
+const ROAD_DESCRIPTION = "Nice description of road, e.g. High Street"
 const DETECT_SPEED = 50;
 
 exports.checkData = () => {
@@ -33,7 +34,7 @@ exports.checkData = () => {
 
 				speeds.forEach((speed) => {
 					client.post("statuses/update", { status: 
-						`At ${foundDate} a driver seems to have been travelling at an average speed of ${speed} MPH in a 40mph area on Churchill Way East #SpeederBot #Speeding`
+						`At ${foundDate} a driver seems to have been travelling at an average speed of ${speed} MPH in a 40mph area on ${ROAD_DESCRIPTION} #SpeederBot #Speeding`
 					}).then((result) => {
 						console.log("POSTED SPEED", speed, result)
 					}).catch((err) => console.error("Failed to post", err));
