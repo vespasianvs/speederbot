@@ -12,7 +12,8 @@ You are going to be generating API Keys, Secret Keys and Access Tokens. **DO NOT
 
 ## Setup
 
-### 1. The highest priority job is to get your Twitter account set up for your bot. This process can take up to 48 hours!
+### 1. Setup Twitter Developer
+**The highest priority job is to get your Twitter account set up for your bot. This process can take up to 48 hours!**
 1. Create the Twitter account for your bot, e.g. @MySpeederBot - the account *must* have an email address associated with it.
 2. Go to [Twitter Developer]https://developer.twitter.com/ - **Make sure that you are logged as your bot!**
 3. Apply for a Twitter Developer account (press the Apply button in the top right)
@@ -23,12 +24,14 @@ You are going to be generating API Keys, Secret Keys and Access Tokens. **DO NOT
 	- Describe what your bot is going to do and if it's going to interact with any users etc - be detailed here!
 	- I said no to everything in the 'specifics' **except** the second one, because my bot will only be tweeting. Here, I put an example of the tweet text my bot was going to use.
 5. Assuming you gave them enough info, your application will get approved, otherwise they will ask for more info - this can take some time! It took me an exchange of 4 emails to get approved.
-### 2. Create a Here.com developer account. This is Free:  https://developer.here.com/sign-up?create=Freemium-Basic&keepState=true&step=account
+### 2. Create a Here.com developer account.
+**This is Free:  https://developer.here.com/sign-up?create=Freemium-Basic&keepState=true&step=account**
 1. Create a new 'Freemium' project and create a REST API. You need to copy the API KEY (**NOT** the APP ID!)
 2. The Bot uses a flow bounding box as the source of it's traffic flow data, draw a box around your road, test and note the 4 coordinates (e.g. 51.5082,-0.1285;51.5062,-0.1265). https://developer.here.com/documentation/examples/rest/traffic/traffic-flow-bounding-box Click into the "bbox" and move the map location to your desired road, try and make this as small as possible to only capture local traffic flows. Then click "Send Request" the results will appear in the black box and note down the 4 coordinates.
 3. Check the output of the Send Request. Here Technologies appear to provide outputs for Major Trunk Roads. These are A-Roads and Motorways. Although there are some B-Roads included in the output, these appear to be the exception. Make a note of *which* road you want to use, e.g. A1 or M1. Also determine the actual speed limit for the section of road that you are monitoring.
 
-### 3. Download the code from https://github.com/vespasianvs/speederbot - either as a zip file or use git to clone the repository.
+### 3. Download the code
+From https://github.com/vespasianvs/speederbot - either as a zip file or use git to clone the repository.
 1. Edit the file *index.js* as follows:
 	- Put your HERE API KEY from step 2.2 where it says YOUR_NEXT_COM_API_KEY_HERE - make sure you copy any dashes or other punctuation at the start of the string.
 	- Put your BBox coordinates from step 2.3 where it says YOUR_COORDINATES_HERE.
@@ -38,12 +41,14 @@ You are going to be generating API Keys, Secret Keys and Access Tokens. **DO NOT
 	- Set the trigger speed limit for DETECT_SPEED (I usually use 10mph above the posted speed limit)
 2. Rename *config.js.sample* to *config.js*.
 
-### 4. Log into your (approved?) Twitter Developer Account (as your bot) and head to the Developer Portal.
+### 4. Log into your (approved?) Twitter Developer Account
+**Log in as your bot and head to the Developer Portal.**
 1. Click ' + Create Project App ' and enter a name for it (e.g. my_hometown_speederbot)
 2. You will immediately be given an API Key and API Secret Key - copy the api key into 'Consumer Key' and API Secret Key into 'Consumer Secret' in *config.js*. **These will not be shown again!**
 3. Click on App Settings then at the top click 'Keys and tokens'
 4. Under Authentication Tokens, next to Access Token and Secret click the 'Generate Button'. Copy these tokens into the access_token_key and access_token_secret fields in *config.js*
-### 5. Create a Google Cloud Developer Account (you'll need a Google account for this). https://cloud.google.com/
+### 5. Create a Google Cloud Developer Account
+**You'll need a Google account for this). https://cloud.google.com/**
 1. Head to the console and then Find 'Cloud Functions' from the menu.
 2. Click 'Create Function'
 	- Give your function a name, e.g. speeding-a36
