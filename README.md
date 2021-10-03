@@ -17,11 +17,11 @@ You are going to be generating API Keys, Secret Keys and Access Tokens. **DO NOT
 	b) Go to [Twitter Developer]https://developer.twitter.com/ - **Make sure that you are logged as your bot!**
 	c) Apply for a Twitter Developer account (press the Apply button in the top right)
 	d) I applied as follows:
-		-> Hobbyist
-		-> Making a bot
-		-> Filled in my details
-		-> Describe what your bot is going to do and if it's going to interact with any users etc - be detailed here!
-		-> I said no to everything in the 'specifics' **except** the second one, because my bot will only be tweeting. Here, I put an example of the tweet text my bot was going to use.
+		- Hobbyist
+		- Making a bot
+		- Filled in my details
+		- Describe what your bot is going to do and if it's going to interact with any users etc - be detailed here!
+		- I said no to everything in the 'specifics' **except** the second one, because my bot will only be tweeting. Here, I put an example of the tweet text my bot was going to use.
 	c) Assuming you gave them enough info, your application will get approved, otherwise they will ask for more info - this can take some time! It took me an exchange of 4 emails to get approved.
 2. Create a Here.com developer account. This is Free:  https://developer.here.com/sign-up?create=Freemium-Basic&keepState=true&step=account
 3. Create a new 'Freemium' project and create a REST API. You need to copy the API KEY (**NOT** the APP ID!)
@@ -29,12 +29,12 @@ You are going to be generating API Keys, Secret Keys and Access Tokens. **DO NOT
 5. Check the output of the Send Request. Here Technologies appear to provide outputs for Major Trunk Roads. These are A-Roads and Motorways. Although there are some B-Roads included in the output, these appear to be the exception. Make a note of *which* road you want to use, e.g. A1 or M1. Also determine the actual speed limit for the section of road that you are monitoring.
 6. Download the code from https://github.com/vespasianvs/speederbot - either as a zip file or use git to clone the repository.
 7. Edit the file *index.js* as follows:
-	-> Put your HERE API KEY from step 3 where it says YOUR_NEXT_COM_API_KEY_HERE - make sure you copy any dashes or other punctuation at the start of the string.
-	-> Put your BBox coordinates from step 4 where it says YOUR_COORDINATES_HERE.
-	-> Put your Road name from step 4 where it says ROAD_NAME_HERE!
-	-> In ROAD_DESCRIPTION, give your road name a nice human readable description, e.g. 'High Street' or 'the A36'
-	-> In POSTED_SPEED_LIMIT, put the posted speed limit, e.g. 30mph
-	-> Set the trigger speed limit for DETECT_SPEED (I usually use 10mph above the posted speed limit)
+	- Put your HERE API KEY from step 3 where it says YOUR_NEXT_COM_API_KEY_HERE - make sure you copy any dashes or other punctuation at the start of the string.
+	- Put your BBox coordinates from step 4 where it says YOUR_COORDINATES_HERE.
+	- Put your Road name from step 4 where it says ROAD_NAME_HERE!
+	- In ROAD_DESCRIPTION, give your road name a nice human readable description, e.g. 'High Street' or 'the A36'
+	- In POSTED_SPEED_LIMIT, put the posted speed limit, e.g. 30mph
+	- Set the trigger speed limit for DETECT_SPEED (I usually use 10mph above the posted speed limit)
 8. Rename *config.js.sample* to *config.js*.
 9. Log into your (approved?) Twitter Developer Account (as your bot) and head to the Developer Portal.
 10. Click ' + Create Project App ' and enter a name for it (e.g. my_hometown_speederbot)
@@ -44,29 +44,29 @@ You are going to be generating API Keys, Secret Keys and Access Tokens. **DO NOT
 14. Create a Google Cloud Developer Account (you'll need a Google account for this). https://cloud.google.com/
 15. Head to the console and then Find 'Cloud Functions' from the menu.
 16. Click 'Create Function'
-	-> Give your function a name, e.g. speeding-a36
-	-> region: for UK you want europe-west2
-	-> Set the trigger type to Cloud Pub/Sub
-	-> Click 'Select a Cloud Pub/Sub topic and then click 'Create a topic'
-	-> Enter a name, e.g. run-bot-a36 - you don't need to tick any of the boxes
-	-> Press Save, then press Next (at the bottom of the page)
-	-> In the inline editor, delete all of the text from index.js and then copy the contents of the file that you edited in step 6 (with your API Key, bbox etc)
-	-> Then change to package.json and copy the contents of package.json from this project into the inline editor.
-	-> In the inline editor click the + icon and set the filename to *config.js*
-	-> Copy the contents of config.js in this project into the Inline Editor (with all of your Keys and access tokens!)
-	-> Press Deploy
-	-> Once it has deployed, click the three dots under 'Actions' and click 'Test Function' if it runs - great it should post some tweets, if not you have something wrong in the code - you need to fix that! :)
+	- Give your function a name, e.g. speeding-a36
+	- region: for UK you want europe-west2
+	- Set the trigger type to Cloud Pub/Sub
+	- Click 'Select a Cloud Pub/Sub topic and then click 'Create a topic'
+	- Enter a name, e.g. run-bot-a36 - you don't need to tick any of the boxes
+	- Press Save, then press Next (at the bottom of the page)
+	- In the inline editor, delete all of the text from index.js and then copy the contents of the file that you edited in step 6 (with your API Key, bbox etc)
+	- Then change to package.json and copy the contents of package.json from this project into the inline editor.
+	- In the inline editor click the + icon and set the filename to *config.js*
+	- Copy the contents of config.js in this project into the Inline Editor (with all of your Keys and access tokens!)
+	- Press Deploy
+	- Once it has deployed, click the three dots under 'Actions' and click 'Test Function' if it runs - great it should post some tweets, if not you have something wrong in the code - you need to fix that! :)
 17. Now head to Cloud Scheduler on the main navigation menu
 18. Click 'Create Job'
-	-> Give it a name that makes sense
-	-> Set the frequency (I use every 15 mins, which is: */15 * * * * )
-	-> Set the timezone (Europe/London)
-	-> Click 'Continue'
-	-> Set the Target Type to Pub/Sub
-	-> Select the Pub/Sub topic that we created earlier, e.g. run-bot-a36
-	-> Set the message body to NULL
-	-> Click 'Next' then leave all of the retry settings as default and click 'Create'
-	-> On the cloud scheduler you can click 'Run Now' to see if the Result comes out as 'Success' - if it doesn't, you'll need to figure that out yourself!
+	- Give it a name that makes sense
+	- Set the frequency (I use every 15 mins, which is: */15 * * * * )
+	- Set the timezone (Europe/London)
+	- Click 'Continue'
+	- Set the Target Type to Pub/Sub
+	- Select the Pub/Sub topic that we created earlier, e.g. run-bot-a36
+	- Set the message body to NULL
+	- Click 'Next' then leave all of the retry settings as default and click 'Create'
+	- On the cloud scheduler you can click 'Run Now' to see if the Result comes out as 'Success' - if it doesn't, you'll need to figure that out yourself!
 
 Your bot should now query the Here.com API every 15 minutes and then post to Twitter. I have actually under Cloud Functions -> Actions, used the Copy Function to created three copies of the bot and set different bounding boxes and roads to have my Twitter Bot tweet about three different locations, which is pretty awesome. Each function needs to be run by a scheduler, but it can use the same schedule (just select the same topic in step 16.4 instead of creating a new topic).
 
