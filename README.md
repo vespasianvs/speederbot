@@ -15,7 +15,7 @@ You are going to be generating API Keys, Secret Keys and Access Tokens. **DO NOT
 ### 1. Setup Twitter Developer
 **The highest priority job is to get your Twitter account set up for your bot. This process can take up to 48 hours!**
 1. Create the Twitter account for your bot, e.g. @MySpeederBot - the account *must* have an email address associated with it.
-2. Go to [Twitter Developer]https://developer.twitter.com/ - **Make sure that you are logged as your bot!**
+2. Go to https://developer.twitter.com/ - **Make sure that you are logged as your bot!**
 3. Apply for a Twitter Developer account (press the Apply button in the top right)
 4. I applied as follows:
 	- Hobbyist
@@ -89,7 +89,7 @@ Your bot should now query the Here.com API every 15 minutes and then post to Twi
 
 ## If you find problems
 
-If you feel like there is anything wrong with the code, any improvements to the instructions or anything else please feel free to fork the repository, fix it and then submit a Pull Reuqest. This is open source and it helps if everybody contributes. If none of that last sentence made any sense, go [here]https://github.com/vespasianvs/speederbot/issues and raise a new issue - but be precise with the problem you're having. 'It doesn't work' doesn't help anybody to fix anything!
+If you feel like there is anything wrong with the code, any improvements to the instructions or anything else please feel free to fork the repository, fix it and then submit a Pull Reuqest. This is open source and it helps if everybody contributes. If none of that last sentence made any sense, go https://github.com/vespasianvs/speederbot/issues and raise a new issue - but be precise with the problem you're having. 'It doesn't work' doesn't help anybody to fix anything!
 
 
 
