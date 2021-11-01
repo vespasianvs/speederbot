@@ -58,6 +58,7 @@ From https://github.com/vespasianvs/speederbot - either as a zip file or use git
 	- Enter a name, e.g. run-bot-a36 - you don't need to tick any of the boxes
 	- Press Save, then press Next (at the bottom of the page)
 	- In the inline editor, delete all of the text from index.js and then copy the contents of the file that you edited in step 6 (with your API Key, bbox etc)
+	- Above the main editor box, in the text box labelled 'Entry Point', type _checkData_
 	- Then change to package.json and copy the contents of package.json from this project into the inline editor.
 	- In the inline editor click the + icon and set the filename to *config.js*
 	- Copy the contents of config.js in this project into the Inline Editor (with all of your Keys and access tokens!)
