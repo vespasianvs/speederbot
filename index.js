@@ -35,7 +35,7 @@ exports.checkData = () => {
 
 				speeds.forEach((speed) => {
 					client.post("statuses/update", { status: 
-						`At ${foundDate} a driver seems to have been travelling at an average speed of ${speed} MPH in a ${POSTED_SPEED_LIMIT} area on ${ROAD_DESCRIPTION} #SpeederBot #Speeding`
+						`At ${foundDate} a driver seems to have been travelling at an average speed of ${Math.round(speed)} MPH in a ${POSTED_SPEED_LIMIT} area on ${ROAD_DESCRIPTION} #SpeederBot #Speeding`
 					}).then((result) => {
 						console.log("POSTED SPEED", speed, result)
 					}).catch((err) => console.error("Failed to post", err));
